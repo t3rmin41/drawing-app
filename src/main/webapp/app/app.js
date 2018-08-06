@@ -8,10 +8,6 @@
             templateUrl: 'app/views/home.html',
             controller: 'HomeController'
         })
-        .when('/privacypolicy', {
-            templateUrl: 'app/views/privacypolicy.html',
-            controller: 'PrivacypolicyController'
-        })
         .when('/login', {
             templateUrl: 'app/views/login.html',
             controller: 'LoginController'
@@ -22,7 +18,6 @@
       } ])
       .config([ '$httpProvider', function($httpProvider) {
         $httpProvider.interceptors.push('TokenAuthInterceptor');
-        //$httpProvider.interceptors.push('HttpErrorInterceptor');
       } ])
       .factory('TokenAuthInterceptor', function($cookies) {
           return {
@@ -35,17 +30,4 @@
             }
           };
     })
-    /*
-    .factory('HttpErrorInterceptor', function($rootScope, $q, $log, $location){
-       return {
-         responseError: function(response) {
-           //var httpErrorMessage = "";
-           if ("io.jsonwebtoken.ExpiredJwtException" == response.data.exception) {
-             $rootScope.httpErrorMessage = "Your session expired. Please re-login";
-           }
-           return response;
-         }
-       }
-     })
-     /**/
 })();
