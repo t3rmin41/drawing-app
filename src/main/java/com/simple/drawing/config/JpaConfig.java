@@ -32,11 +32,11 @@ public class JpaConfig {
       
       driverManagerDataSource.setDriverClassName("org.h2.Driver");
       driverManagerDataSource.setUrl("jdbc:h2:./db/prod/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
-    //driverManagerDataSource.setPassword("pr0ds3cr3t");
+      driverManagerDataSource.setPassword("pr0ds3cr3t");
     } else if ("test".equals(activeProfile)) {
       driverManagerDataSource.setDriverClassName("org.h2.Driver");
       driverManagerDataSource.setUrl("jdbc:h2:./db/test/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
-      //driverManagerDataSource.setPassword("t3sts3cr3t");
+      driverManagerDataSource.setPassword("t3sts3cr3t");
     } else if ("dev".equals(activeProfile)) {
       driverManagerDataSource.setDriverClassName("org.h2.Driver");
       driverManagerDataSource.setUrl("jdbc:h2:./db/dev/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
