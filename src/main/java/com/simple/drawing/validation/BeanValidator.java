@@ -1,4 +1,4 @@
-package com.simple.drawing.service;
+package com.simple.drawing.validation;
 
 import java.io.Serializable;
 import java.util.List;

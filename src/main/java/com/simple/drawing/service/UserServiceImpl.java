@@ -2,69 +2,66 @@ package com.simple.drawing.service;
 
 import java.util.List;
 import java.util.Set;
+import javax.inject.Inject;
+import org.springframework.stereotype.Service;
 import com.simple.drawing.domain.UserBean;
 import com.simple.drawing.enums.UserType;
+import com.simple.drawing.mapper.UserMapper;
 
+@Service
 public class UserServiceImpl implements UserService {
+
+  @Inject
+  private UserMapper userMapper;
 
   @Override
   public UserBean getUserByEmailAndPassword(String email, String password) {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.getUserBeanByEmailAndPassword(email, password);
   }
 
   @Override
   public UserBean getUserByEmail(String email) {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.getUserBeanByEmail(email);
   }
 
   @Override
   public UserBean getUserByEmailAndType(String email, UserType type) {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.getUserBeanByEmailAndType(email, type);
   }
-
+  
   @Override
   public UserBean getUserById(Long id) {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.convertUserToBeanByUserId(id);
   }
 
   @Override
   public UserBean saveUser(UserBean bean) {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.saveUser(bean);
   }
 
   @Override
   public UserBean saveUserFromSocial(UserBean bean, UserType type) {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.saveUserFromSocial(bean, type);
   }
-
+  
   @Override
   public List<UserBean> getAllUsers() {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.getAllUsers();
   }
 
   @Override
   public boolean deleteUserById(Long id) {
-    // TODO Auto-generated method stub
-    return false;
+    return userMapper.deleteUserById(id);
   }
 
   @Override
   public UserBean updateUser(UserBean bean) {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.updateUser(bean);
   }
 
   @Override
   public Set<String> getRolesByEmail(String email) {
-    // TODO Auto-generated method stub
-    return null;
+    return userMapper.getRolesByEmail(email);
   }
 
 }

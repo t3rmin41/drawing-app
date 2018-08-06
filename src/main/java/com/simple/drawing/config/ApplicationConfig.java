@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import com.simple.drawing.app.ApplicationContextProvider;
 
 @Configuration
-@ComponentScan(basePackages = {"com.simple.drawing.controller", "com.simple.social.service", 
-    "com.simple.social.mapper", "com.simple.social.repository",
-    "com.simple.social.http.filter", "com.simple.social.aspect",
-    "com.simple.social.errorhandling"
+@ComponentScan(basePackages = {"com.simple.drawing.controller", "com.simple.drawing.service", 
+    "com.simple.drawing.mapper", "com.simple.drawing.repository",
+    "com.simple.drawing.filter", "com.simple.drawing.aspect",
+    "com.simple.drawing.errorhandling"
 })
 public class ApplicationConfig {
 
