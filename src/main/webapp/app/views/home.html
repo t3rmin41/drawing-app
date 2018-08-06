@@ -1,0 +1,52 @@
+<div ng-show="authenticated" class="container">
+    <div data-ng-controller="HomeController as $ctrl">
+      <div class="row">
+        <div class="col-md-5 col-md-offset-4">
+            <h3>Springboot Social login app</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+             <div class="alert alert-danger" ng-show="$root.httpErrorMessage"> {{ $root.httpErrorMessage }} </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ $root.user.firstName }} {{ $root.user.lastName }} {{ $root.user.email }}
+                  <span class="caret"></span>
+                  <i class="glyphicon glyphicon-user pull-left" style="padding-right: 0.5em"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="logout()">Logout</a></li>
+                </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+    </div>
+    <div ng-controller="TabsController" class="row">
+      <div class="col-md-11">
+        <nav>
+        <ul class="nav nav-tabs" style="border-bottom: none">
+            <li ng-repeat="tab in tabs" ng-class='{active : tab.selected}'>
+              <a href="#/" ng-click="setCurrentTab(tab.id)">{{ tab.title }} </a>
+            </li>
+        </ul>
+        </nav>
+        <div id="{{currentTab.id}}" class="tab-content">
+            <div class="tab-pane active" role="tabpanel">
+                <div ng-include src="templateUrl(currentTab.id)"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2" style="float: none; margin: 0 auto; padding-top: 3em; padding-left: 0em; padding-right: 0em;">
+        <a href="javascript:void(0)" ng-click="showPrivacyPolicy()">Privacy policy</a>
+      </div>
+    </div>
+</div>
