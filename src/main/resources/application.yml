@@ -2,7 +2,7 @@ spring:
     application:
         name: com.simple.drawing.app
     profiles:
-        active: test
+        active: prod
     session:
         store-type: none
     google:
