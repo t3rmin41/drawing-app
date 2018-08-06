@@ -2,7 +2,6 @@ package com.simple.drawing.test.config;
 
 import java.util.Properties;
 import javax.persistence.EntityManagerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,8 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class ServiceTestConfig {
 
-  @Value("${spring.profiles.active}")
-  private String activeProfile;
+  private String activeProfile = "test";
   
   @Bean
   public PasswordEncoder passwordEncoder() {
@@ -40,17 +38,17 @@ public class ServiceTestConfig {
       //driverManagerDataSource.setPassword("c136205c6e9650e4adadfe1d9a674875a536eab8f36bd647c71b3e8c6fa34b7c");
       
       driverManagerDataSource.setDriverClassName("org.h2.Driver");
-      driverManagerDataSource.setUrl("jdbc:h2:./db/prod/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
+      driverManagerDataSource.setUrl("jdbc:h2:./src/test/resources/db/prod/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
       driverManagerDataSource.setUsername("sa");
       driverManagerDataSource.setPassword("pr0ds3cr3t");
     } else if ("test".equals(activeProfile)) {
       driverManagerDataSource.setDriverClassName("org.h2.Driver");
-      driverManagerDataSource.setUrl("jdbc:h2:./db/test/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
+      driverManagerDataSource.setUrl("jdbc:h2:./src/test/resources/db/test/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
       driverManagerDataSource.setUsername("sa");
       driverManagerDataSource.setPassword("t3sts3cr3t");
     } else if ("dev".equals(activeProfile)) {
       driverManagerDataSource.setDriverClassName("org.h2.Driver");
-      driverManagerDataSource.setUrl("jdbc:h2:./db/dev/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
+      driverManagerDataSource.setUrl("jdbc:h2:./src/test/resources/db/dev/bin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE");
       driverManagerDataSource.setUsername("sa");
       //driverManagerDataSource.setPassword("d3vs3cr3t");
     }
