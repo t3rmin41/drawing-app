@@ -24,7 +24,9 @@
                     ];
 
       var adminTabs = [
-                        { id: '1', title: 'Users', path: 'app/views/user.html', ctrl : 'UserController', selected: false, reloadEvent: 'UserReload' }
+                        { id: '1', title: 'Canvas', path: 'app/views/canvas.html', ctrl : 'CanvasController', selected: false, reloadEvent: 'CanvasReload' },
+                        { id: '2', title: 'Users', path: 'app/views/user.html', ctrl : 'UserController', selected: false, reloadEvent: 'UserReload' }
+                        
                       ];
 
       if (hasAdmin || hasManager) {
