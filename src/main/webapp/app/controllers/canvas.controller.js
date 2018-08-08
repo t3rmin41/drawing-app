@@ -13,6 +13,16 @@
 
     var canvas = new fabric.Canvas('c');
 
+    canvas.on('mouse:down', function(options){
+      console.log('mouse down:', options.e.clientX, options.e.clientY);
+    });
+    canvas.on('mouse:up', function(options){
+      console.log('mouse up:', options.e.clientX, options.e.clientY);
+    });
+//    canvas.on('mouse:move', function(options){
+//      console.log('mouse move:', options.e.clientX, options.e.clientY);
+//    });
+    
     ctrl.$onInit = function() {
       var rect = new fabric.Rect({
         left: 100,
